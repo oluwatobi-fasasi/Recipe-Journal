@@ -3,15 +3,15 @@
   padding: 0;
 }
 
-li{
+li {
   list-style-type: none;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-nav{
+nav {
   background-color: blue;
   margin-right: 15rem;
   margin-left: 15rem;
@@ -19,24 +19,26 @@ nav{
   justify-content: space-between;
   padding-top: 3rem;
 }
-header{
+
+header {
   background-color: blueviolet;
 }
 
-nav ul{
+nav ul {
   display: flex;
   justify-content: space-around;
 }
 
-nav ul li{
+nav ul li {
   font-size: 2rem;
   padding-top: 2rem;
   padding-right: 10rem;
 }
-nav a{
+
+nav a {
   color: #000;
 }
 
-nav img{
+nav img {
   border-radius: 50%;
 }

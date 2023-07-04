@@ -2,3 +2,41 @@
   margin: 0;
   padding: 0;
 }
+
+li{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+nav{
+  background-color: blue;
+  margin-right: 15rem;
+  margin-left: 15rem;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3rem;
+}
+header{
+  background-color: blueviolet;
+}
+
+nav ul{
+  display: flex;
+  justify-content: space-around;
+}
+
+nav ul li{
+  font-size: 2rem;
+  padding-top: 2rem;
+  padding-right: 10rem;
+}
+nav a{
+  color: #000;
+}
+
+nav img{
+  border-radius: 50%;
+}

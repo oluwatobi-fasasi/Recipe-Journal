@@ -112,3 +112,52 @@ nav img {
   color: red;
   border: none;
 }
+
+/* Pop Up section */
+.pop-up{
+  display: none;
+  background-color: aqua;
+  height: 96.5vh;
+  padding-top: 2rem;
+}
+
+.pop-up-card{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15rem;
+  margin-right: 15rem;
+  background-color: azure;
+  height: 95vh;
+  border: 5px solid #000;
+}
+
+.cancel-icon{
+  font-size: 3rem;
+  color: #000;
+  float: right;
+  margin-right: 2rem;
+  font-weight: 900;
+}
+.pop-up-img{
+  /* background-color: purple;
+  height: 15rem;
+  width: 20rem; */
+  align-self: center;
+}
+.pop-up img{
+  height: 15rem;
+  width: 20rem;
+}
+.pop-up-item-name{
+  text-align: center;
+  font-size: 3rem;
+  padding-top: 1rem;
+}
+.pop-up-item-details{
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: center;
+  column-gap: 15rem;
+  font-size: 1.5rem;
+}

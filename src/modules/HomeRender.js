@@ -1,4 +1,8 @@
-import recipeApi from './Apis.js';
+import {recipeApi} from './Apis.js';
+import popUpRender from './PopUpRender.js';
+import {addLikes, likesGet} from './Likes.js';
+
+
 
 const fetchMeals = async () => {
   const response = await fetch(recipeApi);
@@ -7,10 +11,14 @@ const fetchMeals = async () => {
 };
 
 const recipeBoard = document.getElementById('recipe-board');
+const header = document.querySelector('header');
+const popUpPage = document.getElementById('pop-up')
 
 let fetchMealsData;
+let fetchlikesData;
 const renderMeals = async () => {
   fetchMealsData = await fetchMeals();
+  fetchlikesData = await likesGet(); 
   fetchMealsData.forEach((meal) => {
     const recipeCard = document.createElement('section');
     recipeCard.classList.add('recipe-card');
@@ -27,7 +35,12 @@ const renderMeals = async () => {
     likeIcon.innerHTML = '<span class="material-symbols-outlined">favorite</span>';
     const likeNum = document.createElement('p');
     likeNum.classList.add('num-likes');
-    likeNum.textContent = '4 likes';
+    likeNum.textContent = '0 likes';
+    fetchlikesData.forEach((item)=>{
+      if(item.item_id === meal.idMeal){
+        likeNum.textContent = `${item.likes} likes`;
+      }
+    })
     const commentBtn = document.createElement('button');
     commentBtn.classList.add('comment-btn');
     commentBtn.textContent = 'Comment';
@@ -47,6 +60,18 @@ const renderMeals = async () => {
     recipeCard.appendChild(reserveBtn);
 
     recipeBoard.appendChild(recipeCard);
+
+
+    commentBtn.addEventListener('click', ()=>{
+      recipeBoard.style.display = 'none'
+      header.style.display = 'none';
+      popUpPage.style.display = 'block'
+      popUpRender(meal.idMeal);
+    })
+
+    likeIcon.addEventListener('click', ()=>{
+      addLikes(meal.idMeal);
+    })
   });
 };
 

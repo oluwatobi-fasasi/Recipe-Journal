@@ -114,14 +114,14 @@ nav img {
 }
 
 /* Pop Up section */
-.pop-up{
+.pop-up {
   display: none;
   background-color: aqua;
   height: 96.5vh;
   padding-top: 2rem;
 }
 
-.pop-up-card{
+.pop-up-card {
   display: flex;
   flex-direction: column;
   margin-left: 15rem;
@@ -131,29 +131,33 @@ nav img {
   border: 5px solid #000;
 }
 
-.cancel-icon{
+.cancel-icon {
   font-size: 3rem;
   color: #000;
   float: right;
   margin-right: 2rem;
   font-weight: 900;
 }
-.pop-up-img{
+
+.pop-up-img {
   /* background-color: purple;
   height: 15rem;
   width: 20rem; */
   align-self: center;
 }
-.pop-up img{
+
+.pop-up img {
   height: 15rem;
   width: 20rem;
 }
-.pop-up-item-name{
+
+.pop-up-item-name {
   text-align: center;
   font-size: 3rem;
   padding-top: 1rem;
 }
-.pop-up-item-details{
+
+.pop-up-item-details {
   padding-top: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;

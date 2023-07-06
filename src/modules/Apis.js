@@ -3,4 +3,4 @@ const commentsApi = 'https://us-central1-involvement-api.cloudfunctions.net/caps
 const likesApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AmOmCpR05yK1s4imyHnc/likes/';
 
 console.log(commentsApi, likesApi);
-export default recipeApi;
+export { recipeApi, likesApi };

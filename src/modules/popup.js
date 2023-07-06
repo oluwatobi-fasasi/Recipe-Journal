@@ -1,14 +1,41 @@
 import { commentsApi } from './Apis.js';
+
 const commentPopUp = document.getElementById('commentPopUp');
 const recipeBoard = document.getElementById('recipe-board');
 const apiDoc = document.getElementById('api-doc');
-const header = document.querySelector('header')
+const header = document.querySelector('header');
 
+const commentGet = async (id) => {
+  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AmOmCpR05yK1s4imyHnc/comments?item_id=${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
 
+  });
+  const data = await response.json();
+  return data;
+};
 
+const commentBox = document.getElementById('commentBox');
+const h3 = document.createElement('h3');
+h3.textContent = 'Comment(5)';
+commentBox.appendChild(h3);
+const ul = document.createElement('ul');
+let commentFetch;
+const popUpComment = async (id) => {
+  ul.innerHTML = '';
+  commentFetch = await commentGet(id);
+  for (let i = 0; i < commentFetch.length; i += 1) {
+    const li = document.createElement('li');
+    li.textContent = `${commentFetch[i].creation_date}  ${commentFetch[i].username}: ${commentFetch[i].comment}`;
+    ul.appendChild(li);
+    commentBox.appendChild(ul);
+  }
+};
 
 const popUp = async (id) => {
-  apiDoc.innerHTML = ''
+  apiDoc.innerHTML = '';
   const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
   const { meals } = await response.json();
   const cancelIcon = document.createElement('p');
@@ -44,14 +71,14 @@ const popUp = async (id) => {
   popUpComment(id);
 
   cancelIcon.addEventListener('click', () => {
-    commentPopUp.style.display = 'none'
+    commentPopUp.style.display = 'none';
     recipeBoard.style.display = 'grid';
     header.style.display = 'block';
   });
 };
 
 const addComment = async (id, input, message) => {
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AmOmCpR05yK1s4imyHnc/comments', {
+  const response = await fetch(commentsApi, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -64,38 +91,10 @@ const addComment = async (id, input, message) => {
 
   });
   const data = await response.json();
-  console.log(data)
+  console.log(data);
   return data;
 };
 
-const commentGet = async (id) => {
-  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AmOmCpR05yK1s4imyHnc/comments?item_id=${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-
-  });
-  const data = await response.json();
-  return data;
-};
-
-const commentBox = document.getElementById('commentBox');
-const h3 = document.createElement('h3');
-h3.textContent = 'Comment(5)';
-commentBox.appendChild(h3);
-const ul = document.createElement('ul');
-let commentFetch;
-const popUpComment = async (id) => {
-  ul.innerHTML = '';
-  commentFetch = await commentGet(id);
-  for (let i = 0; i < commentFetch.length; i += 1) {
-    const li = document.createElement('li');
-    li.textContent = `${commentFetch[i].creation_date}  ${commentFetch[i].username}: ${commentFetch[i].comment}`;
-    ul.appendChild(li);
-    commentBox.appendChild(ul);
-  }
-};
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 const message = document.querySelector('textarea');

@@ -1,6 +1,8 @@
 import { recipeApi } from './Apis.js';
-import popUpRender from './popup.js';
+import { popUp, submitForm } from './popup.js';
 import { addLikes, likesGet } from './Likes.js';
+
+const commentPopUp = document.getElementById('commentPopUp');
 
 const fetchMeals = async () => {
   const response = await fetch(recipeApi);
@@ -10,7 +12,6 @@ const fetchMeals = async () => {
 
 const recipeBoard = document.getElementById('recipe-board');
 const header = document.querySelector('header');
-const popUpPage = document.getElementById('pop-up');
 
 let fetchMealsData;
 let fetchlikesData;
@@ -62,8 +63,9 @@ const renderMeals = async () => {
     commentBtn.addEventListener('click', () => {
       recipeBoard.style.display = 'none';
       header.style.display = 'none';
-      popUpPage.style.display = 'block';
-      popUpRender(meal.idMeal);
+      commentPopUp.style.display = 'flex';
+      popUp(meal.idMeal);
+      submitForm(meal.idMeal);
     });
 
     likeIcon.addEventListener('click', () => {

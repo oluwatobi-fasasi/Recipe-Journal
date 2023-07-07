@@ -114,54 +114,81 @@ nav img {
 }
 
 /* Pop Up section */
-.pop-up {
+.commentPopUp {
   display: none;
+  flex-direction: column;
   background-color: aqua;
-  height: 96.5vh;
-  padding-top: 2rem;
 }
 
-.pop-up-card {
-  display: flex;
-  flex-direction: column;
-  margin-left: 15rem;
-  margin-right: 15rem;
-  background-color: azure;
-  height: 95vh;
-  border: 5px solid #000;
+.commentPopUp img {
+  width: 40rem;
+  height: 20rem;
+  margin-left: 30%;
+}
+
+.pop-up-item-name {
+  font-size: 3rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.pop-up-item-details {
+  text-align: center;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: center;
+  font-size: 1.5rem;
+}
+
+.pop-up-img {
+  align-self: center;
+  margin-top: 4rem;
 }
 
 .cancel-icon {
   font-size: 3rem;
   color: #000;
+  margin-left: auto;
   float: right;
   margin-right: 2rem;
   font-weight: 900;
 }
 
-.pop-up-img {
-  /* background-color: purple;
-  height: 15rem;
-  width: 20rem; */
-  align-self: center;
-}
-
-.pop-up img {
-  height: 15rem;
-  width: 20rem;
-}
-
-.pop-up-item-name {
-  text-align: center;
-  font-size: 3rem;
+.commentPopUp h3 {
+  font-size: 2rem;
   padding-top: 1rem;
+  text-align: center;
 }
 
-.pop-up-item-details {
-  padding-top: 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.commentPopUp ul {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+input {
   align-self: center;
-  column-gap: 15rem;
+  width: 15rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  width: 15rem;
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
+.commentPopUp button {
   font-size: 1.5rem;
+  padding: 1rem;
+  width: 10rem;
+  align-self: center;
+  margin-bottom: 2rem;
 }

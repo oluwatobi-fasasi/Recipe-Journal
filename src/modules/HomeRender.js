@@ -1,5 +1,5 @@
 import { recipeApi } from './Apis.js';
-import popUpRender from './popup.js';
+import popUpRender from './PopUp.js';
 import { addLikes, likesGet } from './Likes.js';
 
 const fetchMeals = async () => {

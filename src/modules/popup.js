@@ -1,112 +1,88 @@
-import { commentsApi } from './Apis.js';
+import { getComment, postComment } from './Comments.js';
+import commentCounter from './CommentCounter.js';
 
-const commentPopUp = document.getElementById('commentPopUp');
-const recipeBoard = document.getElementById('recipe-board');
-const apiDoc = document.getElementById('api-doc');
+
+const footer = document.getElementById('footer');
 const header = document.querySelector('header');
 
-const commentGet = async (id) => {
-  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AmOmCpR05yK1s4imyHnc/comments?item_id=${id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-
-  });
-  const data = await response.json();
-  return data;
-};
-
-const commentBox = document.getElementById('commentBox');
-const h3 = document.createElement('h3');
-h3.textContent = 'Comment(5)';
-commentBox.appendChild(h3);
-const ul = document.createElement('ul');
-let commentFetch;
-const popUpComment = async (id) => {
-  ul.innerHTML = '';
-  commentFetch = await commentGet(id);
-  for (let i = 0; i < commentFetch.length; i += 1) {
-    const li = document.createElement('li');
-    li.textContent = `${commentFetch[i].creation_date}  ${commentFetch[i].username}: ${commentFetch[i].comment}`;
-    ul.appendChild(li);
-    commentBox.appendChild(ul);
-  }
-};
-
-const popUp = async (id) => {
-  apiDoc.innerHTML = '';
+const popup = async (id) => {
   const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
   const { meals } = await response.json();
-  const cancelIcon = document.createElement('p');
-  cancelIcon.innerHTML = '<span class="material-symbols-outlined cancel-icon">close</span>';
-  const popUpdiv = document.createElement('div');
-  popUpdiv.classList.add('pop-up-img');
-  const popUpImg = document.createElement('img');
-  popUpImg.src = `${meals[0].strMealThumb}`;
-  popUpdiv.appendChild(popUpImg);
-  const itemName = document.createElement('p');
-  itemName.classList.add('pop-up-item-name');
-  itemName.textContent = `${meals[0].strMeal}`;
-  const itemDetails = document.createElement('div');
-  itemDetails.classList.add('pop-up-item-details');
-  const detail1 = document.createElement('p');
-  detail1.textContent = `Category: ${meals[0].strCategory}`;
-  const detail2 = document.createElement('p');
-  detail2.textContent = `Area: ${meals[0].strArea}`;
-  const detail3 = document.createElement('p');
-  detail3.textContent = `Ingredient-A: ${meals[0].strIngredient1}`;
-  const detail4 = document.createElement('p');
-  detail4.textContent = `Ingredient-B: ${meals[0].strIngredient3}`;
-  itemDetails.appendChild(detail1);
-  itemDetails.appendChild(detail2);
-  itemDetails.appendChild(detail3);
-  itemDetails.appendChild(detail4);
+  const mainContainer = document.querySelector('.item-wrapper');
 
-  apiDoc.appendChild(cancelIcon);
-  apiDoc.appendChild(popUpdiv);
-  apiDoc.appendChild(itemName);
-  apiDoc.appendChild(itemDetails);
+  const popUp = document.createElement('div');
+  popUp.classList.add('pop-up');
+  const popupContainer = document.createElement('div');
+  popupContainer.classList.add('popup-container');
+  const comments = await getComment(id);
+  let commentsHTML = '';
+  if (comments.length > 0) {
+    commentsHTML = comments
+      .map((item) => `<p>${item.creation_date} - ${item.username}: ${item.comment}</p>`)
+      .join('');
+  }
 
-  popUpComment(id);
+  const {
+    strMealThumb, strMeal, strArea, strIngredient5, strCategory, strIngredient7,
+  } = meals[0];
 
-  cancelIcon.addEventListener('click', () => {
-    commentPopUp.style.display = 'none';
-    recipeBoard.style.display = 'grid';
-    header.style.display = 'block';
+  popupContainer.innerHTML = `
+    <button class="close-btn">&times;</button>
+    <img src="${strMealThumb}" class="popup-image">
+    <h2 class="popup-food-name">${strMeal}</h2>
+    <div class="popup-item-details-container">
+    <p>Category: ${strCategory}</p>
+      <p>Area: ${strArea}</p>
+      <p>Ingredient A: ${strIngredient5}</p>
+      <p>Ingredient B: ${strIngredient7}</p>
+    </div>
+
+    <h3 class="comments-title">Comments<span class='comment-counter' id="comment-counter">(${comments.length})</span></h3>
+    <div class="comments-div">
+      ${commentsHTML}
+    </div>
+
+    <h3 class="form-title">Add a comment</h3>
+    <form class="form">
+      <input class="user-name" type="text" placeholder="Your Name" required>
+      <textarea class="your-insight" placeholder="Your Insight" cols="40" rows="5" required></textarea>
+      <button type="submit" class="submit-btn">Comment</button>
+    </form>
+  `;
+
+  
+  footer.classList.toggle('hidden');
+  header.classList.toggle('hidden');
+
+  popUp.classList.toggle('visible');
+  popUp.appendChild(popupContainer);
+  mainContainer.appendChild(popUp);
+
+  const closeBtn = popUp.querySelector('.close-btn');
+  closeBtn.addEventListener('click', () => {
+    popUp.classList.toggle('visible');
+    document.querySelector('footer').classList.toggle('hidden');
+    document.querySelector('header').classList.toggle('hidden');
   });
-};
 
-const addComment = async (id, input, message) => {
-  const response = await fetch(commentsApi, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      item_id: `${id}`,
-      username: `${input}`,
-      comment: `${message}`,
-    }),
-
-  });
-  const data = await response.json();
-  console.log(data);
-  return data;
-};
-
-const form = document.querySelector('form');
-const input = document.querySelector('input');
-const message = document.querySelector('textarea');
-
-const submitForm = (id) => {
-  form.addEventListener('submit', (e) => {
+  const form = popupContainer.querySelector('.form');
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    addComment(id, input.value, message.value);
-    commentGet(id);
-    popUpComment(id);
+    const userInput = form.querySelector('.user-name');
+    const userComment = form.querySelector('.your-insight');
+    await postComment(id, userInput.value, userComment.value);
+    await commentCounter(id);
     form.reset();
+    const updatedComments = await getComment(id);
+    const commentsDiv = popupContainer.querySelector('.comments-div');
+    commentsDiv.innerHTML = updatedComments
+      .map((item) => `<p>${item.creation_date} - ${item.username}: ${item.comment}</p>`)
+      .join('');
   });
 };
 
-export { popUp, commentGet, submitForm };
+
+   
+  
+
+export default popup;

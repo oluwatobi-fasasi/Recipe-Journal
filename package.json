@@ -36,6 +36,13 @@
     "webpack-dev-server": "^4.13.1"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "lodash": "^4.17.21"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }

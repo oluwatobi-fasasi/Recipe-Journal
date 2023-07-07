@@ -1,30 +1,35 @@
-import { likesApi } from './Apis.js';
+import showLikesCount from './ShowLikes.js';
 
-const addLikes = async (id) => {
-  const response = await fetch(likesApi, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      item_id: `${id}`,
-    }),
+const postLikes = async (id, board) => {
+    const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AmOmCpR05yK1s4imyHnc/likes/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "item_id": `${id}`,
+        action: 'like',
+      }),
+    });
+    if (response.ok) {
+      showLikesCount(id, board);
+    } else {
+      console.error('Failed');
+    }
 
-  });
-  const data = await response.json();
-  return data;
 };
 
-const likesGet = async () => {
-  const response = await fetch(likesApi, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
 
-  });
-  const data = await response.json();
-  return data;
+const getLikes = async () => {
+    const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/AmOmCpR05yK1s4imyHnc/likes/', {
+      method: 'GET',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    const data = await response.json();
+    return data;
 };
 
-export { addLikes, likesGet };
+
+export {getLikes, postLikes};

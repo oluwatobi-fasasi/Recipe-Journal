@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+export default document.body.innerHTML =`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
     </header>
      <section class="item-wrapper" id="item-wrapper">
         <div class="item-board" id="item-board"></div>
-        
+        <!-- <div class="pop-up" id="pop-up"></div> -->
             
         <footer class="footer" id="footer">
             <p>Created by Fasasi and Clarence Atim</p>
@@ -27,3 +27,4 @@
     </section>
 </body>
 </html>
+`;

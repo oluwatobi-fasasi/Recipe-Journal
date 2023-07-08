@@ -13,8 +13,6 @@ const postLikes = async (id, board) => {
   });
   if (response.ok) {
     showLikesCount(id, board);
-  } else {
-    console.error('Failed');
   }
 };
 

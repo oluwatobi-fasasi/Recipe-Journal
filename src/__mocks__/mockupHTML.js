@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+export default document.body.innerHTML =`<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Journal</title>
     <script src="https://kit.fontawesome.com/04925f0a69.js" crossorigin="anonymous"></script>
-<script defer src="runtime.2e79ea2d365c5217c692.js"></script><script defer src="main.2c908adc65102432a4b8.js"></script></head>
+</head>
 <body>
      <header>
         <div id="logo" class="logo"></div>
@@ -27,3 +27,4 @@
     </section>
 </body>
 </html>
+`;

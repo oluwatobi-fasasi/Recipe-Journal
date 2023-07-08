@@ -1,57 +1,65 @@
-![68747470733a2f2f696d672e796f75747562652e636f6d2f76692f416355642d5f596a6a71672f302e6a7067](https://user-images.githubusercontent.com/106747387/230112602-9404e3e1-7fbb-4690-98e3-bbffbf5c314a.jpeg)
 
+<a name="readme-top"></a>
 
-# 📗 Table of Contents
+<div align="center">
+  <h1>🏆 Recipe-Journal</h1>
+</div>
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
+<!-- TABLE OF CONTENTS -->
+
+# 📖 Table of Contents
+
+- [About the Project](#about-project)
+  - [🛠️ Built With](#built-with)
     - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+    - [🔑 Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+  - [💻 Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run Tests](#run-tests)
+    - [Build](#build)
+    - [Webpack Development Server](#webpack-development-server)
+  - [👤 Author](#author)
+  - [🔮 Future Features](#future-features)
+  - [🤝 Contributing](#contributing)
+  - [⭐️ Show Your Support](#show-your-support)
+  - [🙏 Acknowledgments](#acknowledgments)
+  - [📝 License](#license)
 
-<!-- PROJECT DESCRIPTION -->
+# 📖 About the Project <a name="about-project"></a>
 
-# 📖 To Do List <a name="about-project"></a>
+**Recipe-Journal** is a repository that aims to master all of the tools and best practices learned in previous steps.
 
-This is a list of tasks that an individual needs to complete or accomplish. Tasks are typically put in order by priority or importance. 
-
-
-## 🛠 Built With <a name="built-with"></a>
+## 🛠️ Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-
 <details>
-  <summary>Client</summary>
+  <summary>🖥️ Client</summary>
   <ul>
-    <li>html</li>
-    <li>css</li>
-    <li>javascript</li>
-    <li>webpack</li>
+    <li><a href="https://www.w3schools.com/html/">HTML</a></li>
+    <li><a href="https://www.w3schools.com/css/">CSS</a></li>
   </ul>
 </details>
 
-<!-- Features -->
 
-### Key Features <a name="key-features"></a>
+<!-- FEATURES -->
 
-- *Add what to do*
-- *Remove after completed*
-- *Great UI*
-- 
-<!-- Live Demo -->
+### 🔑 Key Features <a name="key-features"></a>
 
+- ✨ **Demo of Linters**: Showcase the usage of HTML, CSS, and JavaScript linters to ensure code quality.
+- 🏅 **Demo of Recipe-Journal**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- [🔗 Live Demo Link](https://oluwatobi-fasasi/Recipe-Journal/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -59,90 +67,95 @@ This is a list of tasks that an individual needs to complete or accomplish. Task
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-To get a local copy up and running, follow these steps.
-
 ### Prerequisites
 
-In order to run this project you need the following tools:
-- Node.js in your computer
-- webpack
-- IDE(e.g.: Vscode,...)
-- Terminal
- 
+To run this project, you need the following:
+
+- 🌐 Web browser
+- 🐙 Git
+- 👨‍💻 Code editor
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-
-Example commands:
-
-```sh
-  git clone https://github.com/oluwatobi-fasasi/To-Do-List
+```bash
+git clone https://github.com/oluwatobi-fasasi/Recipe-Journal.git
 ```
-
 
 ### Install
 
-- Install this project with:
+To install all dependencies, run the following command:
 
-```sh
-  cd To-Do-List
-
-  npm install or npm i
+```bash
+npm install
 ```
-
-- Run an optimized build for prodction:
-```
-  npm run build
-```
-
 
 ### Usage
 
-To run the project, execute the following command:
+To run the project, follow these instructions:
 
-```sh
-  npm run dev
+1. Clone this repository to your local machine.
 
+### Run Tests
+
+To run tests, use the following commands:
+
+- To track HTML linter errors, run:
+```bash
+npx hint .
+```
+- To track CSS linter errors, run:
+```bash
+npx stylelint "**/*.{css,scss}"
+```
+- To track JavaScript l
+
+inter errors, run:
+```bash
+npx eslint .
 ```
 
-### Run tests
+### Build
 
-To run tests, run the following command:
+To build the project, run the following command:
 
-```sh
-  npm run test
+```bash
+npm run build
+```
+
+### Webpack Development Server
+
+To run the webpack development server, execute the following command:
+
+```bash
+npm start
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- AUTHOR -->
 
-## 👥 Authors <a name="authors"></a>
+## 👤 Author <a name="author"></a>
 
-👤 **Oluwatobi**
+👤 oluwatobi-fasasi
 
-- GitHub: [@oluwatobi](https://github.com/oluwatobi-fasasi)
-- Twitter: [@Fasasi](https://twitter.com/FasasiTobi1)
-- LinkedIn: [Fasasi](https://www.linkedin.com/in/abdulwasih-oluwatobi-fasasi-129a8b109/)
+- GitHub: [@oluwatobi-fasasi](https://github.com/oluwatobi-fasasi)
 
+👤 clarenceatim
 
-👤 **Vikas Chib**
-
-- GitHub: [@vikas924](https://github.com/vikas924)
-- Twitter: [@vikas410190](https://twitter.com/vikas410190)
-- LinkedIn: [Vikas Singh](https://www.linkedin.com/in/vikas-singh-586a07132/)
+- GitHub: [@clarenceatim](https://github.com/clarenceatim)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
-## 🔭 Future Features <a name="future-features"></a>
+## 🔮 Future Features <a name="future-features"></a>
 
+- [ ] 📱 **About Page**
+- [ ] 📝 **Add Model**
 
-- [ ] *add responsiveness*
-- [ ] *add more UX*
-
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
 
@@ -150,33 +163,31 @@ To run tests, run the following command:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/oluwatobi-fasasi/Recipe-Journal/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- SUPPORT -->
+<!-- SHOW YOUR SUPPORT -->
 
-## ⭐️ Show your support <a name="support"></a>
+## ⭐️ Show Your Support <a name="show-your-support"></a>
 
-> Follow me on my github if you like this project...
+If you like this project, give it a ⭐️.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
+## 🙏 Acknowledgments <a name="acknowledgments"></a>
 
-I would like to thank Microverse as well as my code partner(s)
-
+We would like to thank Microverse.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
+<!-- LICENSE -->
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](LICENSE) licensed.
+This project is licensed under the [MIT License](./LICENSE).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-

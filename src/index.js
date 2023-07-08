@@ -9,13 +9,13 @@ const itemNum = document.getElementById('items-num');
 
 let recipeData = [];
 const showRecipe = async () => {
-    recipeData = await getRecipe();
-    const likeData = await getLikes();
-    recipeData.map((meal, id) => {
-      const itemCard = document.createElement('div');
-      itemCard.classList.add('item-list');
-      itemCard.setAttribute('data-id', id);
-      itemCard.innerHTML = `
+  recipeData = await getRecipe();
+  const likeData = await getLikes();
+  recipeData.map((meal, id) => {
+    const itemCard = document.createElement('div');
+    itemCard.classList.add('item-list');
+    itemCard.setAttribute('data-id', id);
+    itemCard.innerHTML = `
         <div class="img-container">
           <img src="${meal.strMealThumb}" alt="">
         </div>
@@ -30,27 +30,28 @@ const showRecipe = async () => {
         </div>
       `;
 
-      const numLikes = itemCard.querySelector('.num-likes');
-      let mealLikes = 0;
-      const like = likeData.find((like) => like.item_id === id);
+    const numLikes = itemCard.querySelector('.num-likes');
+    let mealLikes = 0;
+    const like = likeData.find((like) => like.item_id === id);
 
-      if (like) {
-        mealLikes = like.likes;
-      }
-      numLikes.textContent = `${mealLikes} Likes`;
-      const likeIcon = itemCard.querySelector('.fa-heart');
-      likeIcon.addEventListener('click', () => {
-        postLikes(id, itemCard);
-      });
+    if (like) {
+      mealLikes = like.likes;
+    }
+    numLikes.textContent = `${mealLikes} Likes`;
+    const likeIcon = itemCard.querySelector('.fa-heart');
+    likeIcon.addEventListener('click', () => {
+      postLikes(id, itemCard);
+    });
 
-      itemBoard.appendChild(itemCard);
-      const commentBtns = itemCard.querySelectorAll('.comment-btn');
-      commentBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          popup(meal.idMeal);
-        });
+    itemBoard.appendChild(itemCard);
+    const commentBtns = itemCard.querySelectorAll('.comment-btn');
+    commentBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        popup(meal.idMeal);
       });
     });
+    return itemCard;
+  });
 };
 
 document.addEventListener('DOMContentLoaded', async () => {

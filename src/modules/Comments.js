@@ -8,10 +8,6 @@ const getComment = async (itemId) => {
       },
     });
 
-    if (response.status !== 200) {
-      throw new Error('Failed to fetch comments');
-    }
-
     return response.data;
   } catch (error) {
     const errorParagraph = document.createElement('p');

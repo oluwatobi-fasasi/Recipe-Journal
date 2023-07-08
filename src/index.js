@@ -33,7 +33,6 @@ const showRecipe = async () => {
     const numLikes = itemCard.querySelector('.num-likes');
     let mealLikes = 0;
     const like = likeData.find((like) => like.item_id === id);
-
     if (like) {
       mealLikes = like.likes;
     }

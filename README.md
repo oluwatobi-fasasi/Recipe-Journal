@@ -59,7 +59,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [🔗 Live Demo Link](https://oluwatobi-fasasi/Recipe-Journal/)
+- [🔗 Live Demo Link](https://oluwatobi-fasasi.github.io/Recipe-Journal/dist/)
   [🔗 presentation](https://drive.google.com/file/d/1tIEfeYSxa8l8uza95uxGHBcbR0tK5WAX/view?usp=sharing)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

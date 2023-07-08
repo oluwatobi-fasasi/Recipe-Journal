@@ -7,8 +7,7 @@ const postLikes = async (id, board) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      item_id: `${id}`,
-      action: 'like',
+      item_id: id,
     }),
   });
   if (response.ok) {

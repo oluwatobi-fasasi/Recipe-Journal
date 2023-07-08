@@ -1,4 +1,4 @@
-import recipeCounter from './RecipeCounter.js';
+import recipeCounter from "../modules/RecipeCounter";
 
 describe('recipeCounter', () => {
   test('Return Recipe  Total Count', async () => {

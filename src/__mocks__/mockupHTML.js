@@ -1,4 +1,4 @@
-export default document.body.innerHTML =`<!DOCTYPE html>
+export default document.body.innerHTML = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
